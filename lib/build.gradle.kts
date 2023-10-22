@@ -71,7 +71,7 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.flexcode"
+            groupId = "com.github.Felix-Kariuki"
             artifactId = "multiSelectCalendar"
             version = "0.0.1"
 
