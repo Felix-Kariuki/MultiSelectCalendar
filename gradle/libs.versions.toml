@@ -14,7 +14,7 @@ timber = "5.0.1"
 
 dokka = "1.9.0"
 snapper = "0.3.0"
-ktlint = "11.5.1"
+ktlint = "11.6.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
