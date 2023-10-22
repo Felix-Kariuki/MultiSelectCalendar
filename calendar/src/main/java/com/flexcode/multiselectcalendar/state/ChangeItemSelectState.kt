@@ -18,6 +18,7 @@ import java.time.LocalDate
  *
  */
 
+@OptIn(ExperimentalMultiSelectCalendarApi::class)
 public class ChangeItemSelectState(
     private val onSelectChange: (newValue: List<LocalDate>) -> Boolean = { true },
     selected: List<LocalDate>
@@ -33,10 +34,12 @@ public class ChangeItemSelectState(
             }
         }
 
+    @ExperimentalMultiSelectCalendarApi
     override fun isDateSelected(date: LocalDate): Boolean {
         return selected.contains(date)
     }
 
+    @ExperimentalMultiSelectCalendarApi
     override fun onDateSelected(date: LocalDate) {
         selected = ChangeSelected.getNewSelected(date, selected)
     }
