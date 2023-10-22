@@ -15,6 +15,7 @@ timber = "5.0.1"
 dokka = "1.9.10"
 snapper = "0.3.0"
 ktlint = "11.6.1"
+maven-publish = "0.25.3"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -44,3 +45,4 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 com-android-library = { id = "com.android.library", version.ref = "agp" }
 ktlintPlugin = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 dokkaPlugin = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }

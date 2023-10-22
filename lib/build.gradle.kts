@@ -2,11 +2,11 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.kotlinAndroid)
-    id("maven-publish")
+    alias(libs.plugins.maven.publish)
 }
 
 android {
-    namespace = "com.flexcode.multiselectcalendar.calendar"
+    namespace = "com.flexcode.multiselectcalendar.lib"
     compileSdk = 34
 
     defaultConfig {

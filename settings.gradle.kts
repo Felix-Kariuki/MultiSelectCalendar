@@ -16,5 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "MultiSelectCalendar"
 include(":app")
 include(":compose-ui")
-include(":calendar")
+include(":lib")
 include(":sample")

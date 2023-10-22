@@ -42,7 +42,7 @@ android {
 dependencies {
 
     implementation(project(":compose-ui"))
-    implementation(project(":calendar"))
+    implementation(project(":lib"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
