@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
  * @param thickness thickness og the divider
  */
 @Composable
-public fun CommonDivider(
+public fun CalendarCommonDivider(
     modifier: Modifier = Modifier,
     padding: Dp = 0.dp,
     startPadding: Dp = 16.dp,

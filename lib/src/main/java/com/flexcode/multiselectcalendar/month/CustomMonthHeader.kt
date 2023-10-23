@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import com.flexcode.multiselectcalendar.state.month.MonthState
-import com.flexcode.multiselectcalendar.utils.CommonDivider
+import com.flexcode.multiselectcalendar.utils.CalendarCommonDivider
 import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 
@@ -109,7 +109,7 @@ public fun MonthHeaderItem(
 
         Spacer(modifier = modifier.height(8.dp))
 
-        CommonDivider(thickness = 1.5.dp)
+        CalendarCommonDivider(thickness = 1.5.dp)
 
         Spacer(modifier = modifier.height(8.dp))
     }
