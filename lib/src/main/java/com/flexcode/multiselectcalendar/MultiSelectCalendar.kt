@@ -42,7 +42,7 @@ import java.util.Locale
 @ExperimentalMultiSelectCalendarApi
 @Composable
 public fun MultiSelectCalendar(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     shouldShowYear: Boolean = true,
     showCurrentDay: Boolean = false,
     calendarState: CustomCalendarState<ChangeItemSelectState> = rememberMultiSelectCalendarState(),
