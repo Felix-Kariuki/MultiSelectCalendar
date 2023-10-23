@@ -18,9 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.flexcode.multiselectcalendar.compose_ui.spacing
-import com.flexcode.multiselectcalendar.compose_ui.theme.candyApple
-import com.flexcode.multiselectcalendar.compose_ui.theme.textGray
 import com.flexcode.multiselectcalendar.state.ItemSelectState
 import com.flexcode.multiselectcalendar.state.day.DayState
 import com.flexcode.multiselectcalendar.utils.CustomException
@@ -42,7 +39,7 @@ public fun <T : ItemSelectState> DayItem(
     modifier: Modifier = Modifier,
     showCurrentDay: Boolean = false,
     selectedColor: Color = MaterialTheme.colorScheme.background,
-    currentDayColor: Color = candyApple,
+    currentDayColor: Color = Color(0xFFA70E0E),
     onClick: (LocalDate) -> Unit = {}
 ) {
     val date = state.date
@@ -53,7 +50,7 @@ public fun <T : ItemSelectState> DayItem(
     Card(
         modifier = modifier
             .aspectRatio(1f)
-            .padding(spacing().small),
+            .padding(8.dp),
         elevation = CardDefaults.elevatedCardElevation(0.dp),
         border = if (state.isCurrentDay && showCurrentDay) {
             BorderStroke(
@@ -64,7 +61,7 @@ public fun <T : ItemSelectState> DayItem(
             null
         },
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) candyApple else selectedColor
+            containerColor = if (isSelected) Color(0xFFA70E0E) else selectedColor
         ),
         shape = CircleShape
     ) {
@@ -82,7 +79,7 @@ public fun <T : ItemSelectState> DayItem(
                     text = date.dayOfMonth.toString(),
                     style = MaterialTheme.typography.bodyLarge,
                     fontSize = 16.sp,
-                    color = if (isSelected) selectedColor else textGray
+                    color = if (isSelected) selectedColor else Color(0xFF434343)
                 )
             } else {
                 throw CustomException("Not Supported for this version")

@@ -8,10 +8,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.flexcode.multiselectcalendar.compose_ui.spacing
-import com.flexcode.multiselectcalendar.compose_ui.theme.colorGray
 import com.flexcode.multiselectcalendar.utils.CustomException
 import java.time.DayOfWeek
 import java.time.format.TextStyle
@@ -26,7 +26,7 @@ import java.util.Locale
 
 @Composable
 public fun DayOfTheWeekHeaderItem(daysOfWeek: List<DayOfWeek>, modifier: Modifier = Modifier) {
-    Row(modifier = modifier.padding(top = spacing().small)) {
+    Row(modifier = modifier.padding(top = 8.dp)) {
         daysOfWeek.forEach { dayOfWeek ->
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Text(
@@ -35,7 +35,7 @@ public fun DayOfTheWeekHeaderItem(daysOfWeek: List<DayOfWeek>, modifier: Modifie
                     modifier = modifier
                         .weight(1f)
                         .wrapContentHeight(),
-                    color = colorGray,
+                    color = Color(0xFF7E818C),
                     fontSize = 16.sp,
                     style = MaterialTheme.typography.bodyLarge
                 )

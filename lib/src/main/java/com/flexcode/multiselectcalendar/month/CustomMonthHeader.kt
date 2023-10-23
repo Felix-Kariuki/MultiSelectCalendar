@@ -19,13 +19,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
-import com.flexcode.multiselectcalendar.compose_ui.CommonDivider
-import com.flexcode.multiselectcalendar.compose_ui.spacing
-import com.flexcode.multiselectcalendar.compose_ui.theme.colorGray
-import com.flexcode.multiselectcalendar.compose_ui.theme.textGray
 import com.flexcode.multiselectcalendar.state.month.MonthState
+import com.flexcode.multiselectcalendar.utils.CommonDivider
 import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 
@@ -54,7 +52,7 @@ public fun MonthHeaderItem(
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     Text(
                         modifier = Modifier
-                            .padding(start = spacing().medium),
+                            .padding(start = 8.dp),
                         text = monthState.currentMonth.month
                             .name
                             .lowercase()
@@ -69,7 +67,7 @@ public fun MonthHeaderItem(
                     Text(
                         text = monthState.currentMonth.year.toString(),
                         style = MaterialTheme.typography.bodyLarge,
-                        color = textGray
+                        color = Color(0xFF434343)
                     )
                 } else {
                     throw CustomException("not supported currently")
@@ -90,7 +88,7 @@ public fun MonthHeaderItem(
                 ) {
                     Image(
                         imageVector = Icons.Default.KeyboardArrowLeft,
-                        colorFilter = ColorFilter.tint(colorGray),
+                        colorFilter = ColorFilter.tint(Color(0xFF7E818C)),
                         contentDescription = "Previous"
                     )
                 }
@@ -102,17 +100,17 @@ public fun MonthHeaderItem(
                 ) {
                     Image(
                         imageVector = Icons.Default.KeyboardArrowRight,
-                        colorFilter = ColorFilter.tint(colorGray),
+                        colorFilter = ColorFilter.tint(Color(0xFF7E818C)),
                         contentDescription = "Next"
                     )
                 }
             }
         }
 
-        Spacer(modifier = modifier.height(spacing().small))
+        Spacer(modifier = modifier.height(8.dp))
 
         CommonDivider(thickness = 1.5.dp)
 
-        Spacer(modifier = modifier.height(spacing().small))
+        Spacer(modifier = modifier.height(8.dp))
     }
 }

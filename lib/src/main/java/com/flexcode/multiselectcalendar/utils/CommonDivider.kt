@@ -1,4 +1,4 @@
-package com.flexcode.multiselectcalendar.compose_ui
+package com.flexcode.multiselectcalendar.utils
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Divider
@@ -7,7 +7,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.flexcode.multiselectcalendar.compose_ui.theme.stroke
 
 /**
  * shared divider item
@@ -18,11 +17,11 @@ import com.flexcode.multiselectcalendar.compose_ui.theme.stroke
  * @param thickness thickness og the divider
  */
 @Composable
-fun CommonDivider(
+public fun CommonDivider(
     modifier: Modifier = Modifier,
-    padding: Dp = spacing().none,
-    startPadding: Dp = spacing().medium,
-    color: Color = stroke,
+    padding: Dp = 0.dp,
+    startPadding: Dp = 16.dp,
+    color: Color = Color(0xFFEFEFEF),
     thickness: Dp = 1.dp
 ) {
     Divider(

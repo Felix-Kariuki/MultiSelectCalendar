@@ -49,7 +49,7 @@ android {
 dependencies {
     // implementation(libs.material)
 
-    implementation(project(":compose-ui"))
+    //implementation(project(":compose-ui"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
