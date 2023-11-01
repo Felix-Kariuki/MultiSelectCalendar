@@ -1,5 +1,6 @@
 package com.flexcode.multiselectcalendar.state.day
 
+import androidx.compose.runtime.Stable
 import com.flexcode.multiselectcalendar.state.ItemSelectState
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 
@@ -9,6 +10,7 @@ import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
  * @property itemSelectState selection State [ItemSelectState]
  */
 @ExperimentalMultiSelectCalendarApi
+@Stable
 public class DayState<T : ItemSelectState>(
     private val day: DayItem,
     public val itemSelectState: ItemSelectState

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -84,6 +85,7 @@ public fun MultiSelectCalendar(
  * @property selectedState state that handles calendar selection
  */
 @ExperimentalMultiSelectCalendarApi
+@Stable
 public class CustomCalendarState<T : ItemSelectState>(
     public val monthState: MonthState,
     public val selectedState: T

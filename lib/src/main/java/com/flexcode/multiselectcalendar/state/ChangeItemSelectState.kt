@@ -1,6 +1,7 @@
 package com.flexcode.multiselectcalendar.state
 
 import android.os.Build
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.Saver
@@ -19,6 +20,7 @@ import java.time.LocalDate
  */
 
 @OptIn(ExperimentalMultiSelectCalendarApi::class)
+@Stable
 public class ChangeItemSelectState(
     private val onSelectChange: (newValue: List<LocalDate>) -> Boolean = { true },
     selected: List<LocalDate>

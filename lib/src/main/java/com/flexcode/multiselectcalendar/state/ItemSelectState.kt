@@ -1,5 +1,6 @@
 package com.flexcode.multiselectcalendar.state
 
+import androidx.compose.runtime.Immutable
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 import java.time.LocalDate
 
@@ -13,6 +14,7 @@ public interface ItemSelectState {
 }
 
 @ExperimentalMultiSelectCalendarApi
+@Immutable
 public object NoItemSelectedState : ItemSelectState {
     override fun isDateSelected(date: LocalDate): Boolean = false
 

@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -157,6 +158,7 @@ internal val coerceSnapIndex: (SnapperLayoutInfo, startIndex: Int, targetIndex: 
     }
 
 @ExperimentalMultiSelectCalendarApi
+@Stable
 internal class MonthListState(
     private val coroutineScope: CoroutineScope,
     private val initialMonth: YearMonth,

@@ -1,6 +1,7 @@
 package com.flexcode.multiselectcalendar.state.month
 
 import android.os.Build
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.Saver
@@ -13,6 +14,7 @@ import java.time.YearMonth
 public fun monthState(initialMonth: YearMonth): MonthState = MonthStateImpl(initialMonth)
 
 @ExperimentalMultiSelectCalendarApi
+@Stable
 public interface MonthState {
     public var currentMonth: YearMonth
 
@@ -40,6 +42,7 @@ public interface MonthState {
 }
 
 @ExperimentalMultiSelectCalendarApi
+@Stable
 private class MonthStateImpl(
     initialMonth: YearMonth
 ) : MonthState {
