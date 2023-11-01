@@ -1,6 +1,8 @@
 # MultiSelectCalendar
 A multi-selectable calendar for jetpack compose. It always selection of multiple dates on calendar and is flexible dependent on ones usecase
 
+[![](https://jitpack.io/v/Felix-Kariuki/MultiSelectCalendar.svg)](https://jitpack.io/#Felix-Kariuki/MultiSelectCalendar)
+
 ## **Screenshots 📷**
 | | |
 |:-------------------------:|:-------------------------:|
@@ -30,7 +32,7 @@ repositories {
 
 ```gradle
 dependencies {
-	   implementation 'com.github.Felix-Kariuki:MultiSelectCalendar:<latest-version>'
+ 	 implementation("com.github.Felix-Kariuki.MultiSelectCalendar:multiSelectCalendar:v0.1.2")
 }
 ```
 
@@ -59,7 +61,6 @@ allows you to control any prior dates you would like to mark as selected if need
 ``` kotlin
 
 MultiSelectCalendar(
-            modifier = Modifier,
             calendarState = multiSelectState
         )
 
