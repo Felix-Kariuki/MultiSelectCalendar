@@ -51,35 +51,33 @@ public class ChangeItemSelectState(
         @ExperimentalMultiSelectCalendarApi
         fun saveSelected(
             onSelectChange: (newValue: List<LocalDate>) -> Boolean
-        ): Saver<ChangeItemSelectState, Any> {
-            return listSaver(
-                save = { item ->
-                    listOf(item.selected.map { it.toString() })
-                },
-                restore = { restored ->
-                    ChangeItemSelectState(
-                        onSelectChange = onSelectChange,
-                        selected = (restored[1] as? List<String>)?.map {
-                            /**
-                             * todo add support for android versions below Android O
-                             * use Date instead of LocalDate
-                             */
+        ): Saver<ChangeItemSelectState, Any> = listSaver(
+            save = { item ->
+                listOf(item.selected.map { it.toString() })
+            },
+            restore = { restored ->
+                ChangeItemSelectState(
+                    onSelectChange = onSelectChange,
+                    selected = (restored[1] as? List<String>)?.map {
+                        /**
+                         * todo add support for android versions below Android O
+                         * use Date instead of LocalDate
+                         */
 
-                            /**
-                             * todo add support for android versions below Android O
-                             * use Date instead of LocalDate
-                             */
+                        /**
+                         * todo add support for android versions below Android O
+                         * use Date instead of LocalDate
+                         */
 
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                LocalDate.parse(it)
-                            } else {
-                                throw CustomException("Not supported for this version")
-                            }
-                        }.orEmpty()
-                    )
-                }
-            )
-        }
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            LocalDate.parse(it)
+                        } else {
+                            throw CustomException("Not supported for this version")
+                        }
+                    }.orEmpty()
+                )
+            }
+        )
     }
 }
 

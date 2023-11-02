@@ -104,7 +104,6 @@ internal fun <T : ItemSelectState> ScrollableMonthItem(
                 today = today,
                 daysOfWeek = daysOfWeek,
                 dayContent = dayContent,
-                weekHeader = weekHeader,
                 monthContainer = container
             )
         }
@@ -120,16 +119,9 @@ internal fun <T : ItemSelectState> MonthContent(
     today: LocalDate,
     modifier: Modifier = Modifier,
     dayContent: @Composable BoxScope.(DayState<T>) -> Unit,
-    weekHeader: @Composable BoxScope.(List<DayOfWeek>) -> Unit,
     monthContainer: @Composable (content: @Composable (PaddingValues) -> Unit) -> Unit
 ) {
     Column {
-//        Box(
-//            modifier = modifier
-//                .wrapContentHeight(),
-//            content = { weekHeader(daysOfWeek) },
-//        )
-
         monthContainer { paddingValues ->
             Column(
                 modifier = modifier
