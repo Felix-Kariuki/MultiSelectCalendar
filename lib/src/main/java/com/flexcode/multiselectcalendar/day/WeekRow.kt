@@ -18,18 +18,18 @@ internal fun <T : ItemSelectState> WeekRow(
     weekDays: WeekDays,
     selectionState: T,
     modifier: Modifier = Modifier,
-    dayContent: @Composable BoxScope.(DayState<T>) -> Unit
+    dayContent: @Composable BoxScope.(DayState<T>) -> Unit,
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight(),
         horizontalArrangement =
-        if (weekDays.isFirstWeekOfTheMonth) Arrangement.End else Arrangement.Start
+        if (weekDays.isFirstWeekOfTheMonth) Arrangement.End else Arrangement.Start,
     ) {
         weekDays.days.forEachIndexed { index, day ->
             Box(
-                modifier = Modifier.fillMaxWidth(1f / (7 - index))
+                modifier = Modifier.fillMaxWidth(1f / (7 - index)),
             ) {
                 dayContent(DayState(day, selectionState))
             }

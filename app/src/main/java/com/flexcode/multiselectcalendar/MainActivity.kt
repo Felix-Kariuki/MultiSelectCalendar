@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.flexcode.multiselectcalendar.compose_ui.theme.MultiSelectCalendarTheme
+import com.flexcode.multiselectcalendar.composeUi.theme.MultiSelectCalendarTheme
 import com.flexcode.multiselectcalendar.sample.MultiSelectSample
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background,
                 ) {
                     MultiSelectSample()
                 }

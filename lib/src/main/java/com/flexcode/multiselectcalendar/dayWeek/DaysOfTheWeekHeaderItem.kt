@@ -37,7 +37,7 @@ public fun DayOfTheWeekHeaderItem(daysOfWeek: List<DayOfWeek>, modifier: Modifie
                         .wrapContentHeight(),
                     color = Color(0xFF7E818C),
                     fontSize = 16.sp,
-                    style = MaterialTheme.typography.bodyLarge
+                    style = MaterialTheme.typography.bodyLarge,
                 )
             } else {
                 throw CustomException()

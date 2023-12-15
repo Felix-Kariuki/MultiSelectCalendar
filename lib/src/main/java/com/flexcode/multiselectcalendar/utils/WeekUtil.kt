@@ -44,9 +44,22 @@ internal fun YearMonth.getWeeks(firstDayOfTheWeek: DayOfWeek, today: LocalDate):
                 WeekDay(
                     date = date,
                     isFromCurrentMonth = isFromCurrentMonth,
-                    isCurrentDay = date.equals(today)
+                    isCurrentDay = date.equals(today),
                 )
-            }
+            },
         )
     }
 }
+
+internal fun Collection<LocalDate>.addOrRemoveIfExists(date: LocalDate) = if (contains(date)) {
+    this - date
+} else {
+    this + date
+}
+
+internal infix fun DayOfWeek.daysUntil(other: DayOfWeek) =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        (7 + (value - other.value)) % 7
+    } else {
+        throw CustomException()
+    }

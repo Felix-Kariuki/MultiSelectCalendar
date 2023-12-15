@@ -1,4 +1,4 @@
-package com.flexcode.multiselectcalendar.compose_ui
+package com.flexcode.multiselectcalendar.composeUi
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -30,7 +30,7 @@ data class Spacing(
     val extraMedium: Dp = 24.dp,
     val large: Dp = 32.dp,
     val extraLarge: Dp = 64.dp,
-    val bottomLarge: Dp = 120.dp
+    val bottomLarge: Dp = 120.dp,
 )
 
 /**

@@ -40,7 +40,7 @@ public fun <T : ItemSelectState> DayItem(
     showCurrentDay: Boolean = false,
     selectedColor: Color = MaterialTheme.colorScheme.background,
     currentDayColor: Color = Color(0xFFA70E0E),
-    onClick: (LocalDate) -> Unit = {}
+    onClick: (LocalDate) -> Unit = {},
 ) {
     val date = state.date
     val selectedState = state.itemSelectState
@@ -55,15 +55,15 @@ public fun <T : ItemSelectState> DayItem(
         border = if (state.isCurrentDay && showCurrentDay) {
             BorderStroke(
                 1.dp,
-                currentDayColor
+                currentDayColor,
             )
         } else {
             null
         },
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) Color(0xFFA70E0E) else selectedColor
+            containerColor = if (isSelected) Color(0xFFA70E0E) else selectedColor,
         ),
-        shape = CircleShape
+        shape = CircleShape,
     ) {
         Box(
             modifier = Modifier
@@ -72,14 +72,14 @@ public fun <T : ItemSelectState> DayItem(
                     selectedState.onDateSelected(date)
                 }
                 .fillMaxSize(),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Text(
                     text = date.dayOfMonth.toString(),
                     style = MaterialTheme.typography.bodyLarge,
                     fontSize = 16.sp,
-                    color = if (isSelected) selectedColor else Color(0xFF434343)
+                    color = if (isSelected) selectedColor else Color(0xFF434343),
                 )
             } else {
                 throw CustomException("Not Supported for this version")

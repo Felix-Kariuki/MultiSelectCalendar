@@ -1,4 +1,4 @@
-package com.flexcode.multiselectcalendar.compose_ui.theme
+package com.flexcode.multiselectcalendar.composeUi.theme
 
 import androidx.compose.ui.graphics.Color
 

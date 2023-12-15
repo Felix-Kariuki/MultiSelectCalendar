@@ -1,9 +1,9 @@
 package com.flexcode.multiselectcalendar.calendar
 
 import com.flexcode.multiselectcalendar.extensions.getDayName
-import java.util.Date
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.util.Date
 
 public class ExtensionsTest {
 

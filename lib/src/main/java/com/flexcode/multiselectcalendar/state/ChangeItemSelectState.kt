@@ -23,7 +23,7 @@ import java.time.LocalDate
 @Stable
 public class ChangeItemSelectState(
     private val onSelectChange: (newValue: List<LocalDate>) -> Boolean = { true },
-    selected: List<LocalDate>
+    selected: List<LocalDate>,
 ) : ItemSelectState {
 
     private var _selected by mutableStateOf(selected)
@@ -50,7 +50,7 @@ public class ChangeItemSelectState(
 
         @ExperimentalMultiSelectCalendarApi
         fun saveSelected(
-            onSelectChange: (newValue: List<LocalDate>) -> Boolean
+            onSelectChange: (newValue: List<LocalDate>) -> Boolean,
         ): Saver<ChangeItemSelectState, Any> = listSaver(
             save = { item ->
                 listOf(item.selected.map { it.toString() })
@@ -74,9 +74,9 @@ public class ChangeItemSelectState(
                         } else {
                             throw CustomException("Not supported for this version")
                         }
-                    }.orEmpty()
+                    }.orEmpty(),
                 )
-            }
+            },
         )
     }
 }
