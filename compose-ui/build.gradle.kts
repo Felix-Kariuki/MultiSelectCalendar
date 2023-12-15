@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.flexcode.multiselectcalendar.compose_ui"
+    namespace = "com.flexcode.multiselectcalendar.composeUi"
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {

@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.flexcode.multiselectcalendar.MultiSelectCalendar
-import com.flexcode.multiselectcalendar.compose_ui.spacing
-import com.flexcode.multiselectcalendar.compose_ui.theme.MultiSelectCalendarTheme
+import com.flexcode.multiselectcalendar.composeUi.spacing
+import com.flexcode.multiselectcalendar.composeUi.theme.MultiSelectCalendarTheme
 import com.flexcode.multiselectcalendar.rememberMultiSelectCalendarState
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 

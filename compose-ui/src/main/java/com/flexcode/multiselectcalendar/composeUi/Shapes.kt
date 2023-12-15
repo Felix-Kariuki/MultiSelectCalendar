@@ -1,4 +1,4 @@
-package com.flexcode.multiselectcalendar.compose_ui
+package com.flexcode.multiselectcalendar.composeUi
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
