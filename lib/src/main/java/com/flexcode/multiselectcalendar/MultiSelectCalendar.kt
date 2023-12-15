@@ -56,12 +56,12 @@ public fun MultiSelectCalendar(
     monthHeaderItem: @Composable ColumnScope.(MonthState) -> Unit = {
         MonthHeaderItem(
             it,
-            showYear = shouldShowYear
+            showYear = shouldShowYear,
         )
     },
     content: @Composable (content: @Composable (PaddingValues) -> Unit) -> Unit = { contents ->
         Box { contents(PaddingValues()) }
-    }
+    },
 ) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         CustomCalendar(
@@ -72,7 +72,7 @@ public fun MultiSelectCalendar(
             daysOfWeekItem = daysOfWeekItem,
             monthHeaderItem = monthHeaderItem,
             dayItem = dayItem,
-            content = content
+            content = content,
         )
     } else {
         throw CustomException()
@@ -88,7 +88,7 @@ public fun MultiSelectCalendar(
 @Stable
 public class CustomCalendarState<T : ItemSelectState>(
     public val monthState: MonthState,
-    public val selectedState: T
+    public val selectedState: T,
 )
 
 /**
@@ -117,10 +117,10 @@ public fun rememberMultiSelectCalendarState(
         monthState(initialMonth = initialMonth)
     },
     selectedState: ChangeItemSelectState = rememberSaveable(
-        saver = ChangeItemSelectState.saveSelected(onSelectChange)
+        saver = ChangeItemSelectState.saveSelected(onSelectChange),
     ) {
         ChangeItemSelectState(onSelectChange, initialSelectedDates)
-    }
+    },
 ): CustomCalendarState<ChangeItemSelectState> = remember {
     CustomCalendarState(monthState = monthState, selectedState = selectedState)
 }
@@ -154,12 +154,12 @@ public fun <T : ItemSelectState> CustomCalendar(
     monthHeaderItem: @Composable ColumnScope.(MonthState) -> Unit = {
         MonthHeaderItem(
             it,
-            showYear = shouldShowYear
+            showYear = shouldShowYear,
         )
     },
     content: @Composable (content: @Composable (PaddingValues) -> Unit) -> Unit = { contents ->
         Box { contents(PaddingValues()) }
-    }
+    },
 ) {
     val currentMonth = remember { customCalendarState.monthState.currentMonth }
     val daysOfWeek = remember(currentDayOfWeek) {
@@ -167,7 +167,7 @@ public fun <T : ItemSelectState> CustomCalendar(
     }
 
     Column(
-        modifier = modifier
+        modifier = modifier,
     ) {
         monthHeaderItem(customCalendarState.monthState)
         ScrollableMonthItem(
@@ -178,7 +178,7 @@ public fun <T : ItemSelectState> CustomCalendar(
             today = today,
             dayContent = dayItem,
             weekHeader = daysOfWeekItem,
-            container = content
+            container = content,
         )
     }
 }

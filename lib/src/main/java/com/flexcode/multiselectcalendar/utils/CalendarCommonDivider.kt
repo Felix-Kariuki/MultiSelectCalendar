@@ -22,11 +22,11 @@ public fun CalendarCommonDivider(
     padding: Dp = 0.dp,
     startPadding: Dp = 16.dp,
     color: Color = Color(0xFFEFEFEF),
-    thickness: Dp = 1.dp
+    thickness: Dp = 1.dp,
 ) {
     Divider(
         thickness = thickness,
         color = color,
-        modifier = modifier.padding(vertical = padding, horizontal = startPadding)
+        modifier = modifier.padding(vertical = padding, horizontal = startPadding),
     )
 }

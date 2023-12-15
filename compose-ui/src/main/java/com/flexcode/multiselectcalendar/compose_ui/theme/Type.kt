@@ -15,49 +15,49 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 18.sp,
         letterSpacing = 0.5.sp,
-        lineHeight = 20.sp
+        lineHeight = 20.sp,
     ),
     bodyMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.hellix_regular)),
         fontSize = 18.sp,
         fontWeight = FontWeight.Normal,
         letterSpacing = 0.5.sp,
-        lineHeight = 20.sp
+        lineHeight = 20.sp,
     ),
     labelMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.hellix_regular)),
         fontSize = 16.sp,
         fontWeight = FontWeight.Normal,
         letterSpacing = 0.5.sp,
-        lineHeight = 20.sp
+        lineHeight = 20.sp,
     ),
     titleLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.hellix_semibold)),
         fontWeight = FontWeight.ExtraBold,
         fontSize = 28.sp,
         letterSpacing = 0.sp,
-        lineHeight = 20.sp
+        lineHeight = 20.sp,
     ),
     titleMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.hellix_semibold)),
         fontWeight = FontWeight.Normal,
         fontSize = 24.sp,
         letterSpacing = 0.sp,
-        lineHeight = 20.sp
+        lineHeight = 20.sp,
     ),
     titleSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.hellix_semibold)),
         fontWeight = FontWeight.ExtraLight,
         fontSize = 24.sp,
         letterSpacing = 0.sp,
-        lineHeight = 20.sp
+        lineHeight = 20.sp,
     ),
     labelSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.hellix_regular)),
         fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
         letterSpacing = 0.5.sp,
-        lineHeight = 20.sp
-    )
+        lineHeight = 20.sp,
+    ),
 
 )

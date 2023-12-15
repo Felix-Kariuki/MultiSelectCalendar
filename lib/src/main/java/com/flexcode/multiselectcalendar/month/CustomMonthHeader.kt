@@ -38,7 +38,7 @@ import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 public fun MonthHeaderItem(
     monthState: MonthState,
     modifier: Modifier = Modifier,
-    showYear: Boolean = true
+    showYear: Boolean = true,
 ) {
     Column {
         Row(
@@ -46,7 +46,7 @@ public fun MonthHeaderItem(
                 .fillMaxWidth()
                 .padding(vertical = 4.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Row {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -57,7 +57,7 @@ public fun MonthHeaderItem(
                             .name
                             .lowercase()
                             .replaceFirstChar { it.titlecase() },
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge,
                     )
                 } else {
                     throw CustomException("not supported currently")
@@ -67,7 +67,7 @@ public fun MonthHeaderItem(
                     Text(
                         text = monthState.currentMonth.year.toString(),
                         style = MaterialTheme.typography.bodyLarge,
-                        color = Color(0xFF434343)
+                        color = Color(0xFF434343),
                     )
                 } else {
                     throw CustomException("not supported currently")
@@ -84,24 +84,24 @@ public fun MonthHeaderItem(
                         } else {
                             throw CustomException("not supported currently")
                         }
-                    }
+                    },
                 ) {
                     Image(
                         imageVector = Icons.Default.KeyboardArrowLeft,
                         colorFilter = ColorFilter.tint(Color(0xFF7E818C)),
-                        contentDescription = "Previous"
+                        contentDescription = "Previous",
                     )
                 }
 
                 IconButton(
                     onClick = {
                         monthState.currentMonth = monthState.currentMonth.plusMonths(1)
-                    }
+                    },
                 ) {
                     Image(
                         imageVector = Icons.Default.KeyboardArrowRight,
                         colorFilter = ColorFilter.tint(Color(0xFF7E818C)),
-                        contentDescription = "Next"
+                        contentDescription = "Next",
                     )
                 }
             }

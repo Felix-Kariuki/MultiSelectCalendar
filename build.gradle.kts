@@ -31,8 +31,8 @@ subprojects {
                 "filename",
                 "package-name",
                 "experimental:package-name",
-                "experimental:comment-wrapping"
-            )
+                "experimental:comment-wrapping",
+            ),
         )
         reporters {
             reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)

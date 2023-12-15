@@ -35,7 +35,7 @@ public interface MonthState {
                     } else {
                         throw CustomException("Not supported for this version")
                     }
-                }
+                },
             )
         }
     }
@@ -44,7 +44,7 @@ public interface MonthState {
 @ExperimentalMultiSelectCalendarApi
 @Stable
 private class MonthStateImpl(
-    initialMonth: YearMonth
+    initialMonth: YearMonth,
 ) : MonthState {
     private var _currentMonth by mutableStateOf<YearMonth>(initialMonth)
 

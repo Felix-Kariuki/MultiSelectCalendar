@@ -13,5 +13,5 @@ import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 @Stable
 public class DayState<T : ItemSelectState>(
     private val day: DayItem,
-    public val itemSelectState: ItemSelectState
+    public val itemSelectState: ItemSelectState,
 ) : DayItem by day

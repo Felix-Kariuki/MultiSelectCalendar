@@ -7,10 +7,10 @@ plugins {
 
 android {
     namespace = "com.flexcode.multiselectcalendar.lib"
-    compileSdk =  libs.versions.compile.sdk.get().toInt()
+    compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
-        minSdk =  libs.versions.min.sdk.get().toInt()
+        minSdk = libs.versions.min.sdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -21,7 +21,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -30,7 +30,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget =  libs.versions.jvm.target.get()
+        jvmTarget = libs.versions.jvm.target.get()
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.kotlin.compiler.version.get()

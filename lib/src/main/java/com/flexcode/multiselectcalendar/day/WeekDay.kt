@@ -10,11 +10,11 @@ import java.time.LocalDate
 internal class WeekDay(
     override val date: LocalDate,
     override val isCurrentDay: Boolean,
-    override val isFromCurrentMonth: Boolean
+    override val isFromCurrentMonth: Boolean,
 ) : DayItem
 
 @Immutable
 internal data class WeekDays(
     val isFirstWeekOfTheMonth: Boolean = false,
-    val days: List<DayItem>
+    val days: List<DayItem>,
 )

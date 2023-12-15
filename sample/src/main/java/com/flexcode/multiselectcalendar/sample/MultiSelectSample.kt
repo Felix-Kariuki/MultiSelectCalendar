@@ -24,11 +24,11 @@ fun MultiSelectSample(modifier: Modifier = Modifier) {
     Column(
         modifier
             .fillMaxSize()
-            .padding(horizontal = spacing().medium, vertical = spacing().extraLarge)
+            .padding(horizontal = spacing().medium, vertical = spacing().extraLarge),
     ) {
         MultiSelectCalendar(
             modifier = modifier,
-            calendarState = multiSelectState
+            calendarState = multiSelectState,
         )
 
         Spacer(modifier = modifier.height(spacing().large))

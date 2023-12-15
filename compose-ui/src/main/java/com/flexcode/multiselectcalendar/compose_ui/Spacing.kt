@@ -30,7 +30,7 @@ data class Spacing(
     val extraMedium: Dp = 24.dp,
     val large: Dp = 32.dp,
     val extraLarge: Dp = 64.dp,
-    val bottomLarge: Dp = 120.dp
+    val bottomLarge: Dp = 120.dp,
 )
 
 /**

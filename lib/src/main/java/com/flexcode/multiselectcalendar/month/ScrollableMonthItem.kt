@@ -58,19 +58,19 @@ internal fun <T : ItemSelectState> ScrollableMonthItem(
     today: LocalDate,
     dayContent: @Composable BoxScope.(DayState<T>) -> Unit,
     weekHeader: @Composable BoxScope.(List<DayOfWeek>) -> Unit,
-    container: @Composable (content: @Composable (PaddingValues) -> Unit) -> Unit
+    container: @Composable (content: @Composable (PaddingValues) -> Unit) -> Unit,
 ) {
     val coroutineScope = rememberCoroutineScope()
 
     val listState = rememberLazyListState(
-        initialFirstVisibleItemIndex = StartIndex
+        initialFirstVisibleItemIndex = StartIndex,
     )
     val flingBehavior = rememberSnapperFlingBehavior(
         lazyListState = listState,
         snapOffsetForItem = SnapOffsets.Start,
         springAnimationSpec = SnapperFlingBehaviorDefaults.SpringAnimationSpec,
         decayAnimationSpec = rememberSplineBasedDecay(),
-        snapIndex = coerceSnapIndex
+        snapIndex = coerceSnapIndex,
     )
 
     val monthListState = remember {
@@ -78,7 +78,7 @@ internal fun <T : ItemSelectState> ScrollableMonthItem(
             coroutineScope = coroutineScope,
             initialMonth = currentMonth,
             monthState = monthState,
-            listState = listState
+            listState = listState,
         )
     }
 
@@ -87,14 +87,14 @@ internal fun <T : ItemSelectState> ScrollableMonthItem(
             modifier = Modifier
                 .wrapContentHeight()
                 .fillMaxWidth(),
-            content = { weekHeader(daysOfWeek) }
+            content = { weekHeader(daysOfWeek) },
         )
     }
     LazyRow(
         modifier = modifier,
         state = listState,
         flingBehavior = flingBehavior,
-        verticalAlignment = Alignment.Top
+        verticalAlignment = Alignment.Top,
     ) {
         items(PagerItemCount) { index ->
             MonthContent(
@@ -104,7 +104,7 @@ internal fun <T : ItemSelectState> ScrollableMonthItem(
                 today = today,
                 daysOfWeek = daysOfWeek,
                 dayContent = dayContent,
-                monthContainer = container
+                monthContainer = container,
             )
         }
     }
@@ -119,22 +119,22 @@ internal fun <T : ItemSelectState> MonthContent(
     today: LocalDate,
     modifier: Modifier = Modifier,
     dayContent: @Composable BoxScope.(DayState<T>) -> Unit,
-    monthContainer: @Composable (content: @Composable (PaddingValues) -> Unit) -> Unit
+    monthContainer: @Composable (content: @Composable (PaddingValues) -> Unit) -> Unit,
 ) {
     Column {
         monthContainer { paddingValues ->
             Column(
                 modifier = modifier
-                    .padding(paddingValues)
+                    .padding(paddingValues),
             ) {
                 currentMonth.getWeeks(
                     firstDayOfTheWeek = daysOfWeek.first(),
-                    today = today
+                    today = today,
                 ).forEach { week ->
                     WeekRow(
                         weekDays = week,
                         selectionState = selectionState,
-                        dayContent = dayContent
+                        dayContent = dayContent,
                     )
                 }
             }
@@ -155,7 +155,7 @@ internal class MonthListState(
     private val coroutineScope: CoroutineScope,
     private val initialMonth: YearMonth,
     private val monthState: MonthState,
-    private val listState: LazyListState
+    private val listState: LazyListState,
 ) {
 
     private val currentFirstVisibleMonth by derivedStateOf {
@@ -222,7 +222,7 @@ internal const val PagerItemCount = 20_000
 internal const val StartIndex = PagerItemCount / 2
 
 context(LazyListState) internal fun <T> Flow<T>.throttleOnOffset() = combine(
-    snapshotFlow { firstVisibleItemScrollOffset }
+    snapshotFlow { firstVisibleItemScrollOffset },
 ) { newMonth, offset ->
     newMonth to (offset <= MinimalOffsetForEmit)
 }.filter { (_, shouldUpdate) ->

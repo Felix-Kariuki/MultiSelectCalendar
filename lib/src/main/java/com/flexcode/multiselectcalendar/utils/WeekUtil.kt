@@ -44,9 +44,9 @@ internal fun YearMonth.getWeeks(firstDayOfTheWeek: DayOfWeek, today: LocalDate):
                 WeekDay(
                     date = date,
                     isFromCurrentMonth = isFromCurrentMonth,
-                    isCurrentDay = date.equals(today)
+                    isCurrentDay = date.equals(today),
                 )
-            }
+            },
         )
     }
 }
