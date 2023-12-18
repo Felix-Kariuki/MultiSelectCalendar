@@ -60,7 +60,7 @@ jobs:
         run: ./gradlew lint
 
       - name: Generate lint report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lint_report.html
           path: app/build/reports/lint-results-debug.html
@@ -84,7 +84,7 @@ jobs:
         run: ./gradlew test --stacktrace
 
       - name: Generate test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: unit_tests_report.html
           path: app/build/reports/tests/testDebugUnitTest/
