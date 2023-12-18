@@ -18,7 +18,7 @@ min-sdk = "21"
 
 dokka = "1.9.10"
 snapper = "0.3.0"
-ktlint = "11.6.1"
+ktlint = "12.0.3"
 maven-publish = "0.25.3"
 
 [libraries]
