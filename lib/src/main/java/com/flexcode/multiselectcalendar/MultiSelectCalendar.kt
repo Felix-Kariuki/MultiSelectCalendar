@@ -152,7 +152,7 @@ public fun <T : ItemSelectState> CustomCalendar(
 ) {
     val currentMonth = remember { customCalendarState.monthState.currentMonth }
     val daysOfWeek = remember(currentDayOfWeek) {
-        DayOfWeek.values().rotateRight(DaysInAWeek - currentDayOfWeek.ordinal)
+        DayOfWeek.entries.toTypedArray().rotateRight(DaysInAWeek - currentDayOfWeek.ordinal)
     }
 
     Column(
