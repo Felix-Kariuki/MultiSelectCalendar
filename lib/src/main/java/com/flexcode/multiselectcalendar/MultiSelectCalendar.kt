@@ -1,6 +1,5 @@
 package com.flexcode.multiselectcalendar
 
-import android.os.Build
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
@@ -21,7 +20,6 @@ import com.flexcode.multiselectcalendar.state.ItemSelectState
 import com.flexcode.multiselectcalendar.state.day.DayState
 import com.flexcode.multiselectcalendar.state.month.MonthState
 import com.flexcode.multiselectcalendar.state.month.monthState
-import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.DaysInAWeek
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 import java.time.DayOfWeek
@@ -63,20 +61,16 @@ public fun MultiSelectCalendar(
         Box { contents(PaddingValues()) }
     },
 ) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        CustomCalendar(
-            modifier = modifier,
-            customCalendarState = calendarState,
-            currentDayOfWeek = WeekFields.of(Locale.getDefault()).firstDayOfWeek,
-            today = LocalDate.now(),
-            daysOfWeekItem = daysOfWeekItem,
-            monthHeaderItem = monthHeaderItem,
-            dayItem = dayItem,
-            content = content,
-        )
-    } else {
-        throw CustomException()
-    }
+    CustomCalendar(
+        modifier = modifier,
+        customCalendarState = calendarState,
+        currentDayOfWeek = WeekFields.of(Locale.getDefault()).firstDayOfWeek,
+        today = LocalDate.now(),
+        daysOfWeekItem = daysOfWeekItem,
+        monthHeaderItem = monthHeaderItem,
+        dayItem = dayItem,
+        content = content,
+    )
 }
 
 /**
@@ -108,12 +102,7 @@ public fun rememberMultiSelectCalendarState(
     initialSelectedDates: List<LocalDate> = emptyList(),
     onSelectChange: (newValue: List<LocalDate>) -> Boolean = { true },
     monthState: MonthState = rememberSaveable(saver = MonthState.saveMonthState()) {
-        val initialMonth: YearMonth
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            initialMonth = YearMonth.now()
-        } else {
-            throw CustomException("Not supported for this version of android")
-        }
+        val initialMonth: YearMonth = YearMonth.now()
         monthState(initialMonth = initialMonth)
     },
     selectedState: ChangeItemSelectState = rememberSaveable(
@@ -163,7 +152,7 @@ public fun <T : ItemSelectState> CustomCalendar(
 ) {
     val currentMonth = remember { customCalendarState.monthState.currentMonth }
     val daysOfWeek = remember(currentDayOfWeek) {
-        DayOfWeek.values().rotateRight(DaysInAWeek - currentDayOfWeek.ordinal)
+        DayOfWeek.entries.toTypedArray().rotateRight(DaysInAWeek - currentDayOfWeek.ordinal)
     }
 
     Column(

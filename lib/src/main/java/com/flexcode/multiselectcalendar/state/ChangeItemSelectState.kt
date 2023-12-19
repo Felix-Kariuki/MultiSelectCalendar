@@ -1,13 +1,11 @@
 package com.flexcode.multiselectcalendar.state
 
-import android.os.Build
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.setValue
-import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 import com.flexcode.multiselectcalendar.utils.addOrRemoveIfExists
 import java.time.LocalDate
@@ -53,27 +51,17 @@ public class ChangeItemSelectState(
             onSelectChange: (newValue: List<LocalDate>) -> Boolean,
         ): Saver<ChangeItemSelectState, Any> = listSaver(
             save = { item ->
-                listOf(item.selected.map { it.toString() })
+                if (item.selected.isNotEmpty()) {
+                    listOf(item.selected.map { it.toString() })
+                } else {
+                    emptyList()
+                }
             },
             restore = { restored ->
                 ChangeItemSelectState(
                     onSelectChange = onSelectChange,
                     selected = (restored[1] as? List<String>)?.map {
-                        /**
-                         * todo add support for android versions below Android O
-                         * use Date instead of LocalDate
-                         */
-
-                        /**
-                         * todo add support for android versions below Android O
-                         * use Date instead of LocalDate
-                         */
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            LocalDate.parse(it)
-                        } else {
-                            throw CustomException("Not supported for this version")
-                        }
+                        LocalDate.parse(it)
                     }.orEmpty(),
                 )
             },

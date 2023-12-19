@@ -1,6 +1,5 @@
 package com.flexcode.multiselectcalendar.month
 
-import android.os.Build
 import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -25,7 +24,6 @@ import com.flexcode.multiselectcalendar.day.WeekRow
 import com.flexcode.multiselectcalendar.state.ItemSelectState
 import com.flexcode.multiselectcalendar.state.day.DayState
 import com.flexcode.multiselectcalendar.state.month.MonthState
-import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 import com.flexcode.multiselectcalendar.utils.getWeeks
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
@@ -177,11 +175,7 @@ internal class MonthListState(
     }
 
     fun getMonthForPage(index: Int): YearMonth =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            initialMonth.plusMonths((index - StartIndex).toLong())
-        } else {
-            throw CustomException("Not Supported")
-        }
+        initialMonth.plusMonths((index - StartIndex).toLong())
 
     private fun moveToMonth(month: YearMonth) {
         if (month == currentFirstVisibleMonth) return
@@ -212,11 +206,7 @@ internal class MonthListState(
 }
 
 private operator fun YearMonth.minus(other: YearMonth) =
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        ChronoUnit.MONTHS.between(other, this)
-    } else {
-        throw CustomException("Not Supported")
-    }
+    ChronoUnit.MONTHS.between(other, this)
 
 internal const val PagerItemCount = 20_000
 internal const val StartIndex = PagerItemCount / 2
