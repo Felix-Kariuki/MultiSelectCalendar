@@ -1,6 +1,5 @@
 package com.flexcode.multiselectcalendar.month
 
-import android.os.Build
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,7 +23,6 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import com.flexcode.multiselectcalendar.state.month.MonthState
 import com.flexcode.multiselectcalendar.utils.CalendarCommonDivider
-import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 
 /**
@@ -49,28 +47,23 @@ public fun MonthHeaderItem(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Row {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    Text(
-                        modifier = Modifier
-                            .padding(start = 8.dp),
-                        text = monthState.currentMonth.month
-                            .name
-                            .lowercase()
-                            .replaceFirstChar { it.titlecase() },
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                } else {
-                    throw CustomException("not supported currently")
-                }
+                Text(
+                    modifier = Modifier
+                        .padding(start = 8.dp),
+                    text = monthState.currentMonth.month
+                        .name
+                        .lowercase()
+                        .replaceFirstChar { it.titlecase() },
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+
                 Spacer(modifier = Modifier.width(8.dp))
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && showYear) {
+                if (showYear) {
                     Text(
                         text = monthState.currentMonth.year.toString(),
                         style = MaterialTheme.typography.bodyLarge,
                         color = Color(0xFF434343),
                     )
-                } else {
-                    throw CustomException("not supported currently")
                 }
             }
 
@@ -78,12 +71,8 @@ public fun MonthHeaderItem(
                 IconButton(
 
                     onClick = {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            monthState.currentMonth =
-                                monthState.currentMonth.minusMonths(1)
-                        } else {
-                            throw CustomException("not supported currently")
-                        }
+                        monthState.currentMonth =
+                            monthState.currentMonth.minusMonths(1)
                     },
                 ) {
                     Image(

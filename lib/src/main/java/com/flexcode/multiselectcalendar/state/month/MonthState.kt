@@ -1,12 +1,10 @@
 package com.flexcode.multiselectcalendar.state.month
 
-import android.os.Build
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.setValue
-import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 import java.time.YearMonth
 
@@ -26,15 +24,7 @@ public interface MonthState {
                     it.currentMonth.toString()
                 },
                 restore = {
-                    /**
-                     * YearMonth not supported for android versions below O
-                     * todo fix
-                     */
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        monthState(YearMonth.parse(it))
-                    } else {
-                        throw CustomException("Not supported for this version")
-                    }
+                    monthState(YearMonth.parse(it))
                 },
             )
         }

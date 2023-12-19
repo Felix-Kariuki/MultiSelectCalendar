@@ -1,6 +1,5 @@
 package com.flexcode.multiselectcalendar.dayWeek
 
-import android.os.Build
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -12,10 +11,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.flexcode.multiselectcalendar.utils.CustomException
 import java.time.DayOfWeek
 import java.time.format.TextStyle
-import java.util.Locale
+import java.util.*
 
 /**
  * this is the days of the week header item Ui can be customized to suit the a specific use case
@@ -28,20 +26,17 @@ import java.util.Locale
 public fun DayOfTheWeekHeaderItem(daysOfWeek: List<DayOfWeek>, modifier: Modifier = Modifier) {
     Row(modifier = modifier.padding(top = 8.dp)) {
         daysOfWeek.forEach { dayOfWeek ->
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Text(
-                    textAlign = TextAlign.Center,
-                    text = dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.getDefault()),
-                    modifier = modifier
-                        .weight(1f)
-                        .wrapContentHeight(),
-                    color = Color(0xFF7E818C),
-                    fontSize = 16.sp,
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-            } else {
-                throw CustomException()
-            }
+
+            Text(
+                textAlign = TextAlign.Center,
+                text = dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.getDefault()),
+                modifier = modifier
+                    .weight(1f)
+                    .wrapContentHeight(),
+                color = Color(0xFF7E818C),
+                fontSize = 16.sp,
+                style = MaterialTheme.typography.bodyLarge,
+            )
         }
     }
 }

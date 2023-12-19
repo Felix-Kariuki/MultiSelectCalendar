@@ -1,6 +1,5 @@
 package com.flexcode.multiselectcalendar.utils
 
-import android.os.Build
 import com.flexcode.multiselectcalendar.day.WeekDay
 import com.flexcode.multiselectcalendar.day.WeekDays
 import java.time.DayOfWeek
@@ -11,17 +10,10 @@ internal const val DaysInAWeek = 7
 
 @ExperimentalMultiSelectCalendarApi
 internal fun YearMonth.getWeeks(firstDayOfTheWeek: DayOfWeek, today: LocalDate): List<WeekDays> {
-    val daysLength = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        lengthOfMonth()
-    } else {
-        throw CustomException("Not Supported")
-    }
+    val daysLength = lengthOfMonth()
 
-    val starOffset = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        atDay(1).dayOfWeek daysUntil firstDayOfTheWeek
-    } else {
-        throw CustomException("Not Supported")
-    }
+    val starOffset = atDay(1).dayOfWeek daysUntil firstDayOfTheWeek
+
     val endOffset =
         DaysInAWeek - (atDay(daysLength).dayOfWeek daysUntil firstDayOfTheWeek) - 1
 
@@ -57,9 +49,4 @@ internal fun Collection<LocalDate>.addOrRemoveIfExists(date: LocalDate) = if (co
     this + date
 }
 
-internal infix fun DayOfWeek.daysUntil(other: DayOfWeek) =
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        (7 + (value - other.value)) % 7
-    } else {
-        throw CustomException()
-    }
+internal infix fun DayOfWeek.daysUntil(other: DayOfWeek) = (7 + (value - other.value)) % 7

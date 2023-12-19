@@ -1,6 +1,5 @@
 package com.flexcode.multiselectcalendar.day
 
-import android.os.Build
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -20,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.flexcode.multiselectcalendar.state.ItemSelectState
 import com.flexcode.multiselectcalendar.state.day.DayState
-import com.flexcode.multiselectcalendar.utils.CustomException
 import com.flexcode.multiselectcalendar.utils.ExperimentalMultiSelectCalendarApi
 import java.time.LocalDate
 
@@ -74,16 +72,12 @@ public fun <T : ItemSelectState> DayItem(
                 .fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Text(
-                    text = date.dayOfMonth.toString(),
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontSize = 16.sp,
-                    color = if (isSelected) selectedColor else Color(0xFF434343),
-                )
-            } else {
-                throw CustomException("Not Supported for this version")
-            }
+            Text(
+                text = date.dayOfMonth.toString(),
+                style = MaterialTheme.typography.bodyLarge,
+                fontSize = 16.sp,
+                color = if (isSelected) selectedColor else Color(0xFF434343),
+            )
         }
     }
 }

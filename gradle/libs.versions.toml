@@ -14,7 +14,7 @@ timber = "5.0.1"
 kotlin-compiler-version = "1.5.5"
 jvm-target = "17"
 compile-sdk = "34"
-min-sdk = "21"
+min-sdk = "26"
 
 dokka = "1.9.10"
 snapper = "0.3.0"
