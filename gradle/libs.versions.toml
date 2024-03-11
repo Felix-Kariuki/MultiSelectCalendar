@@ -16,7 +16,7 @@ jvm-target = "17"
 compile-sdk = "34"
 min-sdk = "26"
 
-dokka = "1.9.10"
+dokka = "1.9.20"
 snapper = "0.3.0"
 ktlint = "11.6.1"
 maven-publish = "0.27.0"
